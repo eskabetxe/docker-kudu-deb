@@ -1,0 +1,2 @@
+export FLAGS_log_dir=/var/log/kudu
+export FLAGS_rpc_bind_addresses=0.0.0.0:7051
