@@ -43,15 +43,14 @@ RUN cd ${KUDU_GIT_DIR}/kudu/build/release \
 #    && cp -aR ${KUDU_GIT_DIR}/kudu/www/* ${KUDU_DEB_DIR}/usr/lib/kudu/www \
 #    && dpkg-deb --build ${KUDU_DEB_DIR}
 
-
-ENV KUDU_INSTALL_DIR=/opt/kudur
+RUN $RANDOM
 RUN mkdir ${KUDU_INSTALL_DIR}
 ADD script/kudu/ ${KUDU_INSTALL_DIR}
 
 RUN cp -a ${KUDU_GIT_DIR}/kudu/build/release/bin/kudu ${KUDU_INSTALL_DIR}/source \
     && cp -a ${KUDU_GIT_DIR}/kudu/build/release/bin/kudu-master ${KUDU_INSTALL_DIR}/source \
     && cp -a ${KUDU_GIT_DIR}/kudu/build/release/bin/kudu-tserver ${KUDU_INSTALL_DIR}/source \
-    && cp -aR ${KUDU_GIT_DIR}/kudu/www/* ${KUDU_INSTALL_DIR}/source
+    && cp -aR ${KUDU_GIT_DIR}/kudu/www ${KUDU_INSTALL_DIR}/source
 
 WORKDIR ${KUDU_INSTALL_DIR}
 RUN dpkg-buildpackage -us -uc -b

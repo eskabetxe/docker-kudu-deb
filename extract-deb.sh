@@ -2,7 +2,7 @@
 
 KUDU_VERSION=1.9.0-RC2
 
-docker build . -t eskabetxe/kudu-deb:${KUDU_VERSION}
+docker build . -t "eskabetxe/kudu-deb:${KUDU_VERSION}"
 
 docker create --name toDownDeb eskabetxe/kudu-deb:${KUDU_VERSION}
 CONTAINER_ID=$(docker ps -aqf "name=toDownDeb")
