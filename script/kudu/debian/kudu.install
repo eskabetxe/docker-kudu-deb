@@ -1,0 +1,3 @@
+source/kudu /usr/lib/kudu/bin
+source/www /usr/lib/kudu/www
+source/binary/kudu /usr/bin

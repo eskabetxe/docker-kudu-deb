@@ -1,0 +1,26 @@
+Source: kudu
+Maintainer: Joao Boto <boto@boto.pro>
+
+Package: kudu
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}, adduser
+Homepage: https://github.com/eskabetxe
+Section: misc
+Priority: extra
+Description: Apache Kudu Server
+
+Package: kudu-master
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}, kudu (= 1.9.0-RC2)
+Homepage: https://github.com/eskabetxe
+Section: misc
+Priority: extra
+Description: Apache Kudu Master Server
+
+Package: kudu-tserver
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}, kudu (= 1.9.0-RC2)
+Homepage: https://github.com/eskabetxe
+Section: misc
+Priority: extra
+Description: Apache Kudu Tablet Server

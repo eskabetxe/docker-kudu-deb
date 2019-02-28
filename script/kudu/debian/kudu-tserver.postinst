@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    configure)
+        if [ ! -d /var/lib/kudu ]; then
+            mkdir -p /var/lib/kudu
+            chown _kudu:_kudu /var/lib/kudu
+        fi
+
+        if [ ! -d /var/log/kudu ]; then
+            mkdir -p /var/log/kudu
+            chown _kudu:_kudu /var/log/kudu
+        fi
+
+        if [ -d /run/systemd/system ] ; then
+            systemctl --system daemon-reload >/dev/null || true
+        fi
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0

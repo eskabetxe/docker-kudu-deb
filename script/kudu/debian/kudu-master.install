@@ -1,0 +1,3 @@
+source/kudu-master /usr/lib/kudu/sbin
+source/config/master.gflagfile /etc/kudu/conf
+source/binary/kudu-master /usr/sbin

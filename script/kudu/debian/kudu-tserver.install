@@ -1,0 +1,3 @@
+source/kudu-tserver /usr/lib/kudu/sbin
+source/config/tserver.gflagfile /etc/kudu/conf
+source/binary/kudu-tserver /usr/sbin
