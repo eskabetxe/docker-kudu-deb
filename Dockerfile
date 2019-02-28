@@ -21,12 +21,17 @@ RUN set -x \
 
 RUN mkdir ${KUDU_GIT_DIR} \
     && cd ${KUDU_GIT_DIR} \
-    && git clone https://github.com/apache/kudu --depth 1 --single-branch --branch ${KUDU_VERSION} \
-    && cd kudu \
-    && thirdparty/build-if-necessary.sh \
+    && git clone https://github.com/apache/kudu --depth 1 --single-branch --branch ${KUDU_VERSION}
+
+RUN cd ${KUDU_GIT_DIR}/kudu \
+    && thirdparty/build-if-necessary.sh
+
+RUN cd ${KUDU_GIT_DIR}/kudu \
     && mkdir -p build/release \
     && cd build/release \
-    && ../../thirdparty/installed/common/bin/cmake -DCMAKE_BUILD_TYPE=release ../.. \
+    && ../../thirdparty/installed/common/bin/cmake -DNO_TESTS=1 -DCMAKE_BUILD_TYPE=release ../..
+
+RUN cd ${KUDU_GIT_DIR}/kudu/build/release \
     && make -j4
 
 #ENV KUDU_DEB_DIR=${KUDU_INSTALL_DIR}-${KUDU_VERSION}-x86_64
@@ -39,13 +44,14 @@ RUN mkdir ${KUDU_GIT_DIR} \
 #    && dpkg-deb --build ${KUDU_DEB_DIR}
 
 
+ENV KUDU_INSTALL_DIR=/opt/kudur
 RUN mkdir ${KUDU_INSTALL_DIR}
 ADD script/kudu/ ${KUDU_INSTALL_DIR}
 
 RUN cp -a ${KUDU_GIT_DIR}/kudu/build/release/bin/kudu ${KUDU_INSTALL_DIR}/source \
     && cp -a ${KUDU_GIT_DIR}/kudu/build/release/bin/kudu-master ${KUDU_INSTALL_DIR}/source \
     && cp -a ${KUDU_GIT_DIR}/kudu/build/release/bin/kudu-tserver ${KUDU_INSTALL_DIR}/source \
-    && cp -aR ${KUDU_GIT_DIR}/kudu/www ${KUDU_INSTALL_DIR}/source
+    && cp -aR ${KUDU_GIT_DIR}/kudu/www/* ${KUDU_INSTALL_DIR}/source
 
 WORKDIR ${KUDU_INSTALL_DIR}
 RUN dpkg-buildpackage -us -uc -b
