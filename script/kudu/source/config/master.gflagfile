@@ -3,13 +3,13 @@
 #--master_addresses=
 
 ## List of directories where the Master will place its data blocks.
---fs_data_dirs=/var/lib/kudu/master
+--fs_data_dirs=/var/lib/kudu/master/data
+
+## The directory where the Master will place its write-ahead logs.
+--fs_wal_dir=/var/lib/kudu/master/wal
 
 ## The directory where the Master will place its tablet metadata.
 #--fs_metadata_dir
-
-## The directory where the Master will place its write-ahead logs.
---fs_wal_dir=/var/lib/kudu/master
 
 ## The directory to store Master log files.
 --log_dir=/var/log/kudu

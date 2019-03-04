@@ -2,16 +2,16 @@
 ## The masters do not read this flag.
 --tserver_master_addrs=127.0.0.1:7051
 
-## List of directories where the Master will place its data blocks.
---fs_data_dirs=/var/lib/kudu/master
+## List of directories where the Tablet Server will place its data blocks.
+--fs_data_dirs=/var/lib/kudu/tserver/data
 
-## The directory where the Master will place its tablet metadata.
+## The directory where the Tablet Server will place its write-ahead logs.
+--fs_wal_dir=/var/lib/kudu/tserver/wal
+
+## The directory where the Tablet Server will place its tablet metadata.
 #--fs_metadata_dir
 
-## The directory where the Master will place its write-ahead logs.
---fs_wal_dir=/var/lib/kudu/master
-
-## The directory to store Master log files.
+## The directory to store Tablet Server log files
 --log_dir=/var/log/kudu
 
 ## Maximum amount of memory allocated to the Kudu Tablet Server’s block cache.

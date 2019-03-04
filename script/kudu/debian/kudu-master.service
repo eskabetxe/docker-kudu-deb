@@ -7,7 +7,7 @@ Environment=KUDU_HOME=/usr/lib/kudu
 ExecStart=/usr/lib/kudu/sbin/kudu-master --flagfile=/etc/kudu/conf/master.gflagfile
 TimeoutStopSec=5
 Restart=on-failure
-User=_kudu
+User=kudu
 
 [Install]
 WantedBy=multi-user.target

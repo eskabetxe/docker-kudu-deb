@@ -1,9 +1,0 @@
-Package: kudu
-Version: 1.8.0
-Architecture: amd64
-Maintainer: Joao Boto <boto@boto.pro>
-Homepage: https://github.com/eskabetxe/
-Depends: libsasl2-dev, libsasl2-modules
-Section: misc
-Priority: extra
-Description: Columnar storage engine
