@@ -1,6 +1,6 @@
 #!/bin/bash
 
-KUDU_VERSION=1.9.0-RC2
+KUDU_VERSION=1.9.0
 
 docker build . -t "eskabetxe/kudu-deb:${KUDU_VERSION}"
 

@@ -1,7 +1,7 @@
 FROM debian:stretch
 MAINTAINER eskabetxe
 
-ENV KUDU_VERSION=1.9.0-RC2 \
+ENV KUDU_VERSION=1.9.0 \
     KUDU_GIT_DIR=/opt/git \
     KUDU_INSTALL_DIR=/opt/kudu
 
