@@ -11,7 +11,7 @@ Description: Apache Kudu Server
 
 Package: kudu-master
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, kudu (= 1.9.0)
+Depends: ${misc:Depends}, ${shlibs:Depends}, kudu (= 1.10.0-RC3)
 Homepage: https://github.com/eskabetxe
 Section: misc
 Priority: extra
@@ -19,7 +19,7 @@ Description: Apache Kudu Master Server
 
 Package: kudu-tserver
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, kudu (= 1.9.0)
+Depends: ${misc:Depends}, ${shlibs:Depends}, kudu (= 1.10.0-RC3)
 Homepage: https://github.com/eskabetxe
 Section: misc
 Priority: extra

@@ -1,14 +1,19 @@
 #!/bin/bash
 
-KUDU_VERSION=1.9.0
+KUDU_VERSION=1.10.0-RC3
 
 docker build . -t "eskabetxe/kudu-deb:${KUDU_VERSION}"
 
 docker create --name toDownDeb eskabetxe/kudu-deb:${KUDU_VERSION}
 CONTAINER_ID=$(docker ps -aqf "name=toDownDeb")
 
-docker cp $CONTAINER_ID:/opt/kudu_${KUDU_VERSION}_amd64.deb .
-docker cp $CONTAINER_ID:/opt/kudu-master_${KUDU_VERSION}_amd64.deb .
-docker cp $CONTAINER_ID:/opt/kudu-tserver_${KUDU_VERSION}_amd64.deb .
+mkdir tmp
+
+docker cp $CONTAINER_ID:/opt/kudu/kudu_${KUDU_VERSION}_amd64.deb ./tmp/
+docker cp $CONTAINER_ID:/opt/kudu/kudu-master_${KUDU_VERSION}_amd64.deb ./tmp/
+docker cp $CONTAINER_ID:/opt/kudu/kudu-tserver_${KUDU_VERSION}_amd64.deb ./tmp/
+docker cp $CONTAINER_ID:/opt/kudu/kudu_${KUDU_VERSION}_amd64.buildinfo ./tmp/
+docker cp $CONTAINER_ID:/opt/kudu/kudu_${KUDU_VERSION}_amd64.changes ./tmp/
+
 
 docker rm toDownDeb

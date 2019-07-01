@@ -1,3 +1,9 @@
+kudu (1.10.0-RC3) UNRELEASED; urgency=low
+
+  * kudu version 1.10.0-RC3
+
+ -- Joao Boto <boto@boto.pro>  Mon, 01 Jul 2019 10:00:00 +0200
+
 kudu (1.9.0) UNRELEASED; urgency=low
 
   * kudu version 1.9.0
